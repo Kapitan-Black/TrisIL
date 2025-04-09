@@ -1,0 +1,292 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Custom Theme Tokens via @theme */
+@theme {
+  --radius: 0.5rem;
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-ring: hsl(var(--ring));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  /* --color-skyblue-light: #e6f4ff;
+  --color-skyblue: #b3deff;
+  --color-skyblue-dark: #1eaedb;
+  --color-oceanblue-light: #d3e4fd;
+  --color-oceanblue: #0ea5e9;
+  --color-oceanblue-dark: #0c8bc7;
+  --color-charcoal: #333333; */
+
+   --color-skyblue-light: #e6f4ff;
+
+   /* bej */
+  --color-skyblue: #F5EEDC;
+  
+  /* blue light */
+  --color-skyblue-dark: #27548A;
+
+  --color-oceanblue-light: #d3e4fd;
+
+  /* blue dark */
+  --color-oceanblue: #183B4E;
+
+  /* orange */
+  --color-oceanblue-dark: #000000dd; 
+  --color-charcoal: #333333;
+
+
+
+
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+
+  --animation-fade-in: fade-in 0.7s var(--ease-fluid) forwards;
+  --animation-fade-in-left: fade-in-left 0.7s var(--ease-fluid) forwards;
+  --animation-fade-in-right: fade-in-right 0.7s var(--ease-fluid) forwards;
+  --animation-float: float 6s ease-in-out infinite;
+}
+
+/* Define keyframes */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Custom utility classes to use like Tailwind defaults */
+@layer utilities {
+  .animate-fade-in {
+    animation: var(--animation-fade-in);
+  }
+
+  .animate-fade-in-left {
+    animation: var(--animation-fade-in-left);
+  }
+
+  .animate-fade-in-right {
+    animation: var(--animation-fade-in-right);
+  }
+
+  .animate-float {
+    animation: var(--animation-float);
+  }
+
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+  .animation-delay-700 {
+    animation-delay: 700ms;
+  }
+  .animation-delay-1000 {
+    animation-delay: 1000ms;
+  }
+}
+
+/* Base Styling */
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 210 40% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 40% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 40% 10%;
+    --primary: 0 0% 85%;
+    --primary-foreground: 210 40% 10%;
+    --secondary: 200 30% 93%;
+    --secondary-foreground: 210 40% 10%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 210 30% 40%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 210 40% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 40% 90%;
+    --input: 210 40% 90%;
+    --ring: 210 30% 70%;
+  }
+
+  .dark {
+    --background: 210 40% 3%;
+    --foreground: 210 40% 98%;
+    --card: 210 40% 5%;
+    --card-foreground: 210 40% 98%;
+    --popover: 210 40% 5%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 0 0% 80%;
+    --primary-foreground: 210 40% 10%;
+    --secondary: 210 40% 15%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 210 40% 15%;
+    --muted-foreground: 210 40% 70%;
+    --accent: 210 40% 15%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 210 40% 20%;
+    --input: 210 40% 20%;
+    --ring: 210 40% 60%;
+  }
+
+  
+
+
+
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+  }
+
+  img {
+    @apply object-cover;
+  }
+
+  .section-container {
+    @apply container mx-auto px-4 py-16 md:py-2;
+  }
+
+  .section-title {
+    @apply flex flex-col items-center justify-center text-center mb-12;
+  }
+
+  .section-title span {
+    @apply text-sm font-medium uppercase tracking-wider text-charcoal/70 mb-2;
+  }
+
+  .section-title h2 {
+    @apply text-3xl sm:text-4xl font-medium text-charcoal;
+  }
+
+  .transform-gpu {
+    transform: translateZ(0);
+  }
+
+  .blur-effect {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }}
+
+
+
+
+
+
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
