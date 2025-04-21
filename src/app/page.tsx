@@ -21,7 +21,6 @@ export default function Home() {
         </div>
 
         <Footer />
-
         {/* WhatsApp Floating Icon */}
         <a
           href="https://wa.me/972501234567" // replace with your number
